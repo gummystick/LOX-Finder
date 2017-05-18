@@ -6,6 +6,16 @@
 			<meta name="Description" content="A proof of concept for searching pubmed">
 		</head>
 		<body>
-			TEST	
+			<div class="headinfo">
+				{{eiwit}}
+				{{jaartal}}
+			</div>
+			<div class="table">
+				{{ids}}
+				{%for link in links%}
+				<br>
+				<a href="https://www.ncbi.nlm.nih.gov/pubmed?term={{link}}">{{link}}</a>
+				{%endfor%}
+			</div>
 		</body>
 	</html>
