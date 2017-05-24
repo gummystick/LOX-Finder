@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from Bio import Entrez
+from Bio import Entrez, Medline
 import datetime
 
 app = Flask(__name__)
@@ -15,9 +15,8 @@ def hello_world():
 def table():
     eiwit = request.args.get("Eiwit")
     jaartal = request.args.get("Jaartal")
-    ids = searchids(eiwit, jaartal)
-    links = linking(ids)
-    return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), ids=str(ids), links=links)
+    rows = searchids(eiwit, jaartal)
+    return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), newrows=rows)
 
 def searchids(eiwit, jaartal):
     Entrez.email = "W.Sies@han.nl"
@@ -26,13 +25,21 @@ def searchids(eiwit, jaartal):
         Entrez.esearch(db="pubmed", term=str(eiwit) + " AND {0}:{1} [PDAT]".format(jaartal, date2), datetype="pdat",
                        usehistory="y"))
     ids = readhandle.get('IdList')
-    return ids
-
-def linking(idlist):
-    linklist = []
-    for id in idlist:
-        linklist.append(str(id))
-    return linklist
+    closedArtikels = Entrez.efetch(db="pubmed", id=ids, rettype="medline", retmode="text")
+    openArtikels = Medline.parse(closedArtikels)
+    newRod=""
+    count = -1
+    for artikel in openArtikels:
+        count += 1
+        abstract = artikel.get("AB", "-")
+        author = artikel.get("AU", "-")
+        dateOfPublish = artikel.get("DP", "-")
+        publicationType = artikel.get("PT", "-")
+        pmid = artikel.get("PMID", "-")
+        keywords = artikel.get("OT", "-")
+        title = artikel.get("TI", "-")
+        newRow = "<tr><td><a href=""https://www.ncbi.nlm.nih.gov/pubmed?term="+str(ids[count])+">"+str(ids[count])+"</td><td>"+title+"</td><td>"+",".join(author)+"</td><td>"+dateOfPublish+"</td><td>"+"\n".join(keywords)+"</td><td>"+"".join(abstract)+"</td></tr>"
+    return newRow
 
 if __name__ == '__main__':
     app.run()
