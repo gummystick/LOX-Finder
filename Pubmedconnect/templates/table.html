@@ -11,11 +11,17 @@
 				{{jaartal}}
 			</div>
 			<div class="table">
-				{{ids}}
-				{%for link in links%}
-				<br>
-				<a href="https://www.ncbi.nlm.nih.gov/pubmed?term={{link}}">{{link}}</a>
-				{%endfor%}
+				<table border=1>
+				<tr>
+				<th>PubMed ID</th>
+				<th>Titel</th>
+				<th>Auteurs</th>
+				<th>Datum publicatie</th>
+				<th>Keywords</th>
+				<th>Abstract</th>
+				</tr>
+				{{newrows|safe}}
+				</table>
 			</div>
 		</body>
 	</html>
