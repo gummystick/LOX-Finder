@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from Bio import Entrez, Medline
+import json
 import datetime
 
 app = Flask(__name__)
