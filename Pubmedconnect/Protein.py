@@ -1,8 +1,8 @@
 class Protein:
     def __init__(self):
-        self.taxonomy = []
-        self.assecions = []
-        self.references = []
+        self.taxonomy
+        self.assecions
+        self.references
     def setTaxonomy(self, taxonomy):
         self.taxonomy = taxonomy
         return
