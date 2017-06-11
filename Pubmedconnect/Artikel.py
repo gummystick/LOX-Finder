@@ -1,12 +1,13 @@
 class Artikel:
-    def __init__(self):
-        self.abstract
-        self.author
-        self.dateOfPublish
-        self.publicationType
-        self.pmid
-        self.keywords
-        self.title
+    def __init__(self, abstract, author, dateOfPublish, publicationType, pmid, keywords, title):
+        self.abstract = abstract
+        self.author = author
+        self.dateOfPublish =dateOfPublish
+        self.publicationType = publicationType
+        self.pmid = pmid
+        self.keywords =keywords
+        self.title= title
+
     def setAbstract(self, abstract):
         self.abstract = abstract
         return

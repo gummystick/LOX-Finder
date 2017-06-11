@@ -22,6 +22,7 @@ class DBConnect:
         return other
 
     def searchArtikel(self):
+        artikel = Artikel
         Entrez.email = "W.Sies@han.nl"
         date2 = str(int(str(datetime.datetime.today())[0:4])+1)
         readhandle = Entrez.read(
@@ -33,16 +34,18 @@ class DBConnect:
         newRow = ""
         if len(ids) > 0:
             count = -1
-            for artikel in openArtikels:
+            artikels = []
+            for openArtikel in openArtikels:
                 count += 1
-                abstract = artikel.get("AB", "-")
-                author = artikel.get("AU", "-")
-                dateOfPublish = artikel.get("DP", "-")
-                publicationType = artikel.get("PT", "-")
-                pmid = artikel.get("PMID", "-")
-                keywords = artikel.get("OT", "-")
-                title = artikel.get("TI", "-")
-                newRow += "<tr><td><a href=""https://www.ncbi.nlm.nih.gov/pubmed?term="+str(ids[count])+">"+str(ids[count])+"</td><td>"+title+"</td><td>"+",".join(author)+"</td><td>"+dateOfPublish+"</td><td>"+"\n".join(keywords)+"</td><td>"+"".join(abstract)+"</td></tr>"
+                abstract = openArtikel.get("AB", "-")
+                author = openArtikel.get("AU", "-")
+                dateOfPublish = openArtikel.get("DP", "-")
+                publicationType = openArtikel.get("PT", "-")
+                pmid = openArtikel.get("PMID", "-")
+                keywords = openArtikel.get("OT", "-")
+                title = openArtikel.get("TI", "-")
+                artikels[count] = artikel.Artikel(abstract, author, dateOfPublish, publicationType, pmid, keywords, title)
+                #newRow += "<tr><td><a href=""https://www.ncbi.nlm.nih.gov/pubmed?term="+str(ids[count])+">"+str(ids[count])+"</td><td>"+title+"</td><td>"+",".join(author)+"</td><td>"+dateOfPublish+"</td><td>"+"\n".join(keywords)+"</td><td>"+"".join(abstract)+"</td></tr>"
         return newRow
 
     def searchProtein(self):
