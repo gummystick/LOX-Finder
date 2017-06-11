@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jun 11 16:27:24 2017
+
+@author: William
+"""
+
 from flask import Flask, render_template, request
 from Bio import Entrez, Medline, SeqIO
 import json
@@ -12,7 +19,7 @@ class DBConnect:
     def getTable(self):
         rows = self.searchArtikel()
         other = self.searchProtein()
-        return rows
+        return other
 
     def searchArtikel(self):
         Entrez.email = "W.Sies@han.nl"
@@ -49,10 +56,13 @@ class DBConnect:
         closedProteins = Entrez.efetch(db="protein", id=ids, rettype="gb", retmode="text")
         openProteins = SeqIO.parse(closedProteins, "genbank")
         count = 0
-        blabla = ""
+        proteinInfo = ""
+        newRow = ""
         for protein in openProteins:
             taxa = protein.annotations.get("taxonomy")
             accessions = protein.annotations.get("accessions")
             references = protein.annotations.get("references")
-            blabla += taxa, accessions, references
-        return blabla
+            proteinInfo += str([taxa, accessions, references])
+        newRow = "<tr><td>"+proteinInfo+"</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
+
+        return newRow

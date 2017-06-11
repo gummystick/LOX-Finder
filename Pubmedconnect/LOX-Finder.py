@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from Bio import Entrez, Medline
 import datetime
+import DBConnect
 
 app = Flask(__name__)
 
@@ -12,8 +13,9 @@ def index():
 def table():
     eiwit = request.args.get("Eiwit")
     jaartal = request.args.get("Jaartal")
-    test = DBConnect(eiwit, jaartal)
-    rows = test.getTable()
+    DBConnect = DBConnect
+    connect = DBConnect.DBConnect(eiwit, jaartal)
+    rows = connect.getTable()
     return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), newrows=rows)
 
 if __name__ == '__main__':
