@@ -1,6 +1,6 @@
 import DBConnect
 
-class Table:
+class Tabel:
 
     def __init__(self, eiwit, jaartal):
         self.DBConnect = DBConnect
@@ -10,7 +10,7 @@ class Table:
         self.tabelProt
 
 
-    def getTable(self):
+    def getTabel(self):
         connect = DBConnect.DBConnect(self.eiwit, self.jaartal)
         self.tabelArt = self.searchArtikel()
         self.tabelProt = self.searchProtein()
