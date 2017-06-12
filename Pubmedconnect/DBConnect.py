@@ -9,17 +9,14 @@ from flask import Flask, render_template, request
 from Bio import Entrez, Medline, SeqIO
 import json
 import datetime
+import Artikel
+import Protein
 
 class DBConnect:
 
     def __init__(self, eiwit, jaartal):
         self.eiwit = eiwit
         self.jaartal = jaartal
-
-    def getTable(self):
-        rows = self.searchArtikel()
-        other = self.searchProtein()
-        return other
 
     def searchArtikel(self):
         artikel = Artikel
@@ -46,9 +43,10 @@ class DBConnect:
                 title = openArtikel.get("TI", "-")
                 artikels[count] = artikel.Artikel(abstract, author, dateOfPublish, publicationType, pmid, keywords, title)
                 #newRow += "<tr><td><a href=""https://www.ncbi.nlm.nih.gov/pubmed?term="+str(ids[count])+">"+str(ids[count])+"</td><td>"+title+"</td><td>"+",".join(author)+"</td><td>"+dateOfPublish+"</td><td>"+"\n".join(keywords)+"</td><td>"+"".join(abstract)+"</td></tr>"
-        return newRow
+        return
 
     def searchProtein(self):
+        protein = Protein
         Entrez.email = "W.Sies@han.nl"
         date2 = str(int(str(datetime.datetime.today())[0:4]) + 1)
         readhandle = Entrez.read(
@@ -58,14 +56,16 @@ class DBConnect:
         ids = readhandle.get('IdList')
         closedProteins = Entrez.efetch(db="protein", id=ids, rettype="gb", retmode="text")
         openProteins = SeqIO.parse(closedProteins, "genbank")
-        count = 0
+        count = -1
         proteinInfo = ""
         newRow = ""
-        for protein in openProteins:
-            taxa = protein.annotations.get("taxonomy")
-            accessions = protein.annotations.get("accessions")
-            references = protein.annotations.get("references")
+        proteins = []
+        for openProtein in openProteins:
+            count += 1
+            taxa = openProtein.annotations.get("taxonomy")
+            accessions = openProtein.annotations.get("accessions")
+            references = openProtein.annotations.get("references")
             proteinInfo += str([taxa, accessions, references])
-        newRow = "<tr><td>"+proteinInfo+"</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
+        #newRow = "<tr><td>"+proteinInfo+"</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
 
-        return newRow
+        return
