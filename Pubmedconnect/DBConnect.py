@@ -66,6 +66,7 @@ class DBConnect:
             accessions = openProtein.annotations.get("accessions")
             references = openProtein.annotations.get("references")
             proteinInfo += str([taxa, accessions, references])
+            proteins[count] = protein.Protein(taxa, accessions, proteinInfo)
         #newRow = "<tr><td>"+proteinInfo+"</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
 
         return
