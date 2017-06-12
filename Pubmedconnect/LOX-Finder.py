@@ -14,7 +14,7 @@ def table():
     tabobject = Tabel
     eiwit = request.args.get("Eiwit")
     jaartal = request.args.get("Jaartal")
-    tab = tabobject.Tabel(eiwit, jaartal)
+    tab = Tabel(eiwit, jaartal)
     tabelcontent = tab.getTable()
     return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), newrows=tabelcontent)
 
