@@ -11,10 +11,11 @@ def index():
 
 @app.route('/table', methods=["GET"])
 def table():
+    tabobject = Tabel
     eiwit = request.args.get("Eiwit")
     jaartal = request.args.get("Jaartal")
-    Tabel = Tabel(eiwit, jaartal)
-    tabelcontent = Tabel.getTable()
+    tab = tabobject.Tabel(eiwit, jaartal)
+    tabelcontent = tab.getTable()
     return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), newrows=tabelcontent)
 
 if __name__ == '__main__':
