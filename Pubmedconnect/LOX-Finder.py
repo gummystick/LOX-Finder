@@ -15,7 +15,7 @@ def table():
     jaartal = request.args.get("Jaartal")
     Tabel = Tabel(eiwit, jaartal)
     tabelcontent = Tabel.getTable()
-    return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), newrows=rows)
+    return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), newrows=tabelcontent)
 
 if __name__ == '__main__':
     app.run()
