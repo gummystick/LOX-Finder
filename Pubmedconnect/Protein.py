@@ -1,5 +1,4 @@
 class Protein:
-
     def __init__(self, taxonomy, assecions, references):
         self.taxonomy = taxonomy
         self.assecions = assecions
