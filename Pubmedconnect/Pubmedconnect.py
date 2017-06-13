@@ -1,15 +1,15 @@
-from flask import Flask, render_template, request
+import datetime
+
 from Bio import Entrez, Medline
+from flask import Flask, render_template, request
 from nltk import word_tokenize
 from nltk.corpus import stopwords
-import datetime
 
 app = Flask(__name__)
 
 filter1 = []
 filter2 = []
 final = []
-
 
 @app.route('/', methods=["GET"])
 def hello_world():
@@ -77,14 +77,8 @@ def compare():
     list3 = set(filter1) & set(filter2)
     keywords2 = sorted(list3, key=lambda k: filter1.index(k))
 
-    #print(keywords2)
-
     for i in keywords2:
         final.append(i)
-    #print(final)
-
-    return keywords2
-
 
 def searchids(eiwit, jaartal):
 
@@ -99,11 +93,11 @@ def searchids(eiwit, jaartal):
         Entrez.esearch(db="pubmed", term=str(eiwit) + " AND {0}:{1} [PDAT]".format(jaartal, date2), datetype="pdat",
                      usehistory="y"))
     ids = readhandle.get('IdList')
-    closedArtikels = Entrez.efetch(db="pubmed", id=ids, rettype="medline", retmode="text")
-    openArtikels = Medline.parse(closedArtikels)
+    closedArtikels1 = Entrez.efetch(db="pubmed", id=ids, rettype="medline", retmode="text")
+    openArtikels1 = Medline.parse(closedArtikels1)
     newRow=""
     count = -1
-    for artikel in openArtikels:
+    for artikel in openArtikels1:
         count += 1
         abstract = artikel.get("AB", "-")
         words = word_tokenize(abstract)
@@ -114,8 +108,6 @@ def searchids(eiwit, jaartal):
                 key.append(i)
         author = artikel.get("AU", "-")
         dateOfPublish = artikel.get("DP", "-")
-        publicationType = artikel.get("PT", "-")
-        pmid = artikel.get("PMID", "-")
         title = artikel.get("TI", "-")
         twords = word_tokenize(title)
         for i in twords:
@@ -132,6 +124,7 @@ def searchids(eiwit, jaartal):
 
         newRow += "<tr><td><a href=""https://www.ncbi.nlm.nih.gov/pubmed?term="+str(ids[count])+">"+str(ids[count])+"</td><td>"+title+"</td><td>"+",".join(author)+"</td><td>"+dateOfPublish+"</td><td>"+"\n".join(rijk2)+"</td><td>"+"\n".join(key2)+"</td><td>"+"".join(abstract)+"</td></tr>"
 
+        del key[:]
     return newRow
 
 
