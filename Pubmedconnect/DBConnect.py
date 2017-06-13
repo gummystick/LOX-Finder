@@ -24,7 +24,6 @@ class DBConnect:
         ids = readhandle.get('IdList')
         closedArtikels = Entrez.efetch(db="pubmed", id=ids, rettype="medline", retmode="text")
         openArtikels = Medline.parse(closedArtikels)
-        #artikels = "<tr><th>PubMed ID</th><th>Titel</th><th>Auteurs</th><th>Datum publicatie</th><th>Classification(s)</th><th>Keywords</th><th>Abstract</th></tr>
         if len(ids) > 0:
             count = -1
             for openArtikel in openArtikels:
@@ -39,7 +38,6 @@ class DBConnect:
                 art = artikel.Artikel(abstract, author, dateOfPublish, publicationType, pmid, keywords, title)
                 art.setTableRow()
                 self.artikels += art.tableRow
-                #newRow += "<tr><td><a href=""https://www.ncbi.nlm.nih.gov/pubmed?term="+str(ids[count])+">"+str(ids[count])+"</td><td>"+title+"</td><td>"+",".join(author)+"</td><td>"+dateOfPublish+"</td><td>"+"\n".join(keywords)+"</td><td>"+"".join(abstract)+"</td></tr>"
         return self.artikels
 
     def searchProtein(self):
@@ -54,7 +52,6 @@ class DBConnect:
         closedProteins = Entrez.efetch(db="protein", id=ids, rettype="gb", retmode="text")
         openProteins = SeqIO.parse(closedProteins, "genbank")
         count = -1
-        #proteinInfo = ""
         if len(ids) > 0:
             for openProtein in openProteins:
                 count += 1
@@ -64,7 +61,6 @@ class DBConnect:
                 prot = protein.Protein(taxa, accessions, references)
                 prot.setTableRow()
                 self.proteins += prot.tableRow
-                #newRow = "<tr><td>"+proteinInfo+"</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>"
         else:
             self.proteins = "Sorry no protein data found"
         return self.proteins
