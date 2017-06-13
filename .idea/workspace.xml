@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6c77313-759c-4823-b5a2-7006ed24b90b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pubmedconnect/DBConnect.py" afterPath="$PROJECT_DIR$/Pubmedconnect/DBConnect.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pubmedconnect/templates/table.html" afterPath="$PROJECT_DIR$/Pubmedconnect/templates/table.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/LOX_Finder$LOX_Finder.coverage" NAME="LOX-Finder Coverage Results" MODIFIED="1497360263813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Pubmedconnect" />
+    <SUITE FILE_PATH="coverage/LOX_Finder$LOX_Finder.coverage" NAME="LOX-Finder Coverage Results" MODIFIED="1497360536343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Pubmedconnect" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -46,8 +46,18 @@
       <file leaf-file-name="LOX-Finder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Pubmedconnect/LOX-Finder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="126">
+              <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Pubmedconnect/templates/table.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Artikel.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Artikel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Pubmedconnect/Artikel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4">
@@ -129,6 +139,7 @@
         <option value="$PROJECT_DIR$/Pubmedconnect/Protein.py" />
         <option value="$PROJECT_DIR$/Pubmedconnect/DBConnect.py" />
         <option value="$PROJECT_DIR$/Pubmedconnect/Artikel.py" />
+        <option value="$PROJECT_DIR$/Pubmedconnect/templates/table.html" />
       </list>
     </option>
   </component>
@@ -184,6 +195,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Pubmedconnect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LOX-Finder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LOX-Finder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pubmedconnect" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -494,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497360395201</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="resolve problem">
+      <created>1497360500511</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1497360500511</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -569,13 +605,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Pubmedconnect/Artikel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="94" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pubmedconnect/LOX-Finder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -891,14 +920,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Pubmedconnect/LOX-Finder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pubmedconnect/DBConnect.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
@@ -913,6 +934,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4">
           <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pubmedconnect/LOX-Finder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="42" lean-forward="true" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pubmedconnect/templates/table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
