@@ -6,12 +6,13 @@ class Tabel:
         self.DBConnect = DBConnect
         self.eiwit = eiwit
         self.jaartal = jaartal
-        self.tabelArt
-        self.tabelProt
+        self.tabelArt = ""
+        self.tabelProt = ""
 
 
-    def getTabel(self):
+    def getTable(self):
         connect = DBConnect.DBConnect(self.eiwit, self.jaartal)
-        self.tabelArt = self.searchArtikel()
-        self.tabelProt = self.searchProtein()
+        connect.searchArtikel()
+        self.tabelArt = connect.searchArtikel()
+        self.tabelProt = connect.searchProtein()
         return

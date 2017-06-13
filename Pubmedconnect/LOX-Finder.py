@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request
-from Bio import Entrez, Medline
-import datetime
 import Tabel
 
 app = Flask(__name__)
@@ -15,8 +13,8 @@ def table():
     eiwit = request.args.get("Eiwit")
     jaartal = request.args.get("Jaartal")
     tab = tabobject.Tabel(eiwit, jaartal)
-    tabelcontent = tab.getTabel()
-    return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), newrows=tabelcontent)
+    tab.getTable()
+    return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), artrows=tab.tabelArt, protein=tab.tabelProt)
 
 if __name__ == '__main__':
     app.run()
