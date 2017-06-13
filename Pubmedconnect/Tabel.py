@@ -12,7 +12,8 @@ class Tabel:
 
     def getTable(self):
         connect = DBConnect.DBConnect(self.eiwit, self.jaartal)
-        connect.searchArtikel()
-        self.tabelArt = connect.searchArtikel()
+        connect.searchArtikels()
+        connect.compareArtikels()
+        self.tabelArt = connect.comparedArtikelSearch()
         self.tabelProt = connect.searchProtein()
         return
