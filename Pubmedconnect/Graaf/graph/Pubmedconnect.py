@@ -3,17 +3,22 @@ from Bio import Entrez, Medline
 import datetime
 import json, codecs
 
+# Het programma van flask wordt hier aangeroepen
+# ook wordt een bestand geopend waar de data voor de graph in komt te staan en het begin van het .json bestand wordt er in geschreven.
+
 app = Flask(__name__)
 bestand = open('static/data.json', 'w')
 bestand.writelines('{' +'\n' + '"nodes":[' +'\n')
 
 @app.route('/', methods=["GET"])
+# De index wordt aangeroepen en de variabelen worden opgehaald.
 def index():
     eiwit=request.args.get("Eiwit")
     jaartal=request.args.get("Jaartal")
     return render_template('./index.html')
 
 @app.route('/table', methods=["GET"])
+# De tabel van de resultaten wordt hier aangeroepen en het template vandeze pagina wordt aangeroepen met de parameters ingevuld.
 def table():
     eiwit = request.args.get("Eiwit")
     jaartal = request.args.get("Jaartal")
@@ -21,6 +26,11 @@ def table():
     bestand.close()
     return render_template('./table.html', eiwit=eiwit, jaartal=str(jaartal), newrows=rows)
 
+
+# de zoekopdracht wordt hier uitegevoerd. Als parameters worden eiwit en jaartal genomen om te zoeken.
+# jaartal is vanaf wanneer de artikelen mogen zijn, en eiwit is het eiwit waar naar gezocht wordt.
+# de pubmed database wordt doorzocht op resultaten die aan de parameters voldoen. 
+# Wanneer er resultaten zijn wordt er een json bestand geschreven om vervolgens in de graph gebruikt te worden
 def searchids(eiwit, jaartal):
     Entrez.email = "W.Sies@han.nl"
     date2 = str(int(str(datetime.datetime.today())[0:4])+1)
