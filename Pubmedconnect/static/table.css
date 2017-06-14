@@ -1,1 +1,17 @@
+body {
+	background-color: white;
+}
 
+td{
+    background-color: white;
+    color: black;
+}
+
+th{
+    background-color:green ;
+    color: white;
+}
+
+tr:hover {
+    background-color: gray;
+}

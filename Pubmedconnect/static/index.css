@@ -1,7 +1,26 @@
-body {
-	background-color:#66CCFF;
+
+h1 {
+
+  color: green;
+  padding: 1px 5px 5px 220px;
+
 }
+h2 {
+  padding: 500px 120px 5px 500px;
+}
+
+body{
+
+  background-color: white;
+  border: green;
+
+}
+div {
+  color: white;
+}
+
 .form {
-	padding: 1px 5px 5px 5px;
-	background-color:#FF6600;
+	padding: 1px 5px 50px 220px;
+	background-color:green;
 }
+

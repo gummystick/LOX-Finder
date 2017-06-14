@@ -21,7 +21,7 @@ class DBConnect:
         self.final = []
 
     def searchArtikels(self):
-        extra_words = [',', '.', '(',')',':',';','<','>','%','[',']','{','}']
+        extra_words = [',', '.', '(',')',':',';','<','>','%','[',']','{','}','role','show','also','e.g','one','provide','group','could','due','may','using','one','time', 'via', 'plays','manner','from','kown','suggest','main','along', 'normal','showed','show','present','two','used','time','first','confirmed','since','found','suggest','findings', 'results','together','part','based','including','use','represent','either','action','set','suggested','direct','led','although', 'number','complete','new', 'formed','study','faster','capable','suggests','product','low','total','action','fresh','well','degree','light','strongly', 'among','seen','levels','strategy','better','side','whether','provides', 'us','played','needs','need','"','risk', 'increased','various','greater','great','depth','essential','storage','serveral','data', 'broad','signal','involved','presented','whole','tested','range','novel','impact','least','e.t','studied','play','shown','create','creates','potentially','fate','little','early','confirm','possible','find','enhance','enhanced','obtained','obtain','--','+','-','_','=','?','types','leading','effect','products','structure','changes','might','serveral','i.e.','line','link','release','less','lower','higher','site','effects','evidence','fed','showes','aim','progression','major','potential','three','local', 'locally','control','report','different','difference','types','growth','efforts','collected','conclude','important','related','way']
         stop_words = set(stopwords.words('English'))
         stop_words.update(extra_words)
         artikel = Artikel
@@ -128,7 +128,7 @@ class DBConnect:
             key1 = set(key)
             key2 = list(key1)
     
-            newRow += "<tr><td><a href=""https://www.ncbi.nlm.nih.gov/pubmed?term="+str(ids[count])+">"+str(ids[count])+"</td><td>"+title+"</td><td>"+",".join(author)+"</td><td>"+dateOfPublish+"</td><td>"+"\n".join(rijk2)+"</td><td>"+"\n".join(key2)+"</td><td>"+"".join(abstract)+"</td></tr>"
+            newRow += "<tr><td><a href=""https://www.ncbi.nlm.nih.gov/pubmed?term="+str(ids[count])+">"+str(ids[count])+"</td><td>"+title+"</td><td>"+",".join(author)+"</td><td>"+dateOfPublish+"</td><td>"+"\n".join(rijk2)+"</td><td>"+"\n".join(key2)+"</td></tr>"
     
             del key[:]
         return newRow
