@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/LOX-Finder.iml" filepath="$PROJECT_DIR$/.idea/LOX-Finder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../project8a/.idea/LOX-Finder-master.iml" filepath="$PROJECT_DIR$/../../../project8a/.idea/LOX-Finder-master.iml" />
     </modules>
   </component>
 </project>
